@@ -1,12 +1,14 @@
 wordpress:
-  image: wordpress
+  image: wordpress:4.5.0-apache
   links:
     - db:mysql
   ports:
     - 8080:80
+  environment:
+    WORDPRESS_DB_PASSWORD: example
 
 db:
-  image: mariadb
+  image: mariadb:10.1.13
   environment:
     MYSQL_DATABASE: wordpress
     MYSQL_ROOT_PASSWORD: example
